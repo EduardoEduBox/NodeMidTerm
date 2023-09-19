@@ -75,7 +75,7 @@ export const postLogin = (req, res) => {
     if(isPasswordValid(user, req.body.password)) {
       req.session.login = true;
       req.session.userId = user.id;
-      res.redirect("urls");
+      res.redirect("/urls");
     } else {
       res.render("login", {passwordErrorMessage: "Incorrect password. Please try again."});
     }
@@ -100,7 +100,7 @@ function isPasswordValid(user, password) {
 export function postLogout(req, res) {
   req.session.login = null;
   req.session.userId = null;
-  res.redirect("login");
+  res.redirect("/login");
 }
 
 const __filename = fileURLToPath(import.meta.url);
